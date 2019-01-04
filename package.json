@@ -1,0 +1,19 @@
+{
+  "name": "react-shop_guitar",
+  "version": "1.0.0",
+  "description": "React ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stecor/react-shop_guitar.git"
+  },
+  "author": "Stefano Corra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stecor/react-shop_guitar/issues"
+  },
+  "homepage": "https://github.com/stecor/react-shop_guitar#readme"
+}
