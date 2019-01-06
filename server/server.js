@@ -14,22 +14,56 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// Models
+//================================
+//       Models
+//================================
 
 const { User } = require('./models/user');
 const { Brand } = require('./models/brand');
 const { Wood } = require('./models/wood');
+const { Product } = require('./models/product');
 
-//Middlewares
+
+//================================
+//       Middlewares
+//================================
+
 
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
+
+
+
+//================================
+//       PRODUCTS
+//================================
+
+app.post('/api/product/article',auth,admin,(req,res)=>{
+
+   const  product = new Product(req.body);
+
+   product.save((err,doc)=>{
+     if(err) return res.json({success:false,err});
+     res.status(200).json({
+       success: true,
+       article: doc
+     })
+   })
+})
+
+
+
 
 //================================
 //       WOODS
 //================================
 
+
+//================================
+//      Insert wood
+//================================
 app.post('/api/product/wood',auth,admin,(req,res)=>{
+
       const wood = new Wood(req.body);
 
       wood.save((err,doc)=>{
@@ -41,6 +75,9 @@ app.post('/api/product/wood',auth,admin,(req,res)=>{
       })
 });
 
+//================================
+//      Get woods
+//================================
 app.get('/api/product/woods', (req,res)=>{
   Wood.find({},(err,woods)=>{
     if(err) return res.status(400).send(err);
@@ -48,8 +85,14 @@ app.get('/api/product/woods', (req,res)=>{
   })
 })
 
+
+
 //================================
 //       BRAND
+//================================
+
+//================================
+//      Insert brand
 //================================
 
 app.post('/api/product/brand',auth,admin,(req,res)=>{
@@ -64,6 +107,10 @@ app.post('/api/product/brand',auth,admin,(req,res)=>{
       })
 })
 
+
+//================================
+//      Get brands
+//================================
 app.get('/api/product/brands',(req,res)=>{
   Brand.find({},(err,brands)=>{
     if(err) return res.status(400).send(err);
@@ -76,6 +123,10 @@ app.get('/api/product/brands',(req,res)=>{
 //       USERS
 //================================
 
+
+//================================
+//       Get users auth
+//================================
 app.get('/api/users/auth', auth,(req,res)=>{
     res.status(200).json({
       isAdmin:req.user.role === 0? false : true,
@@ -89,7 +140,10 @@ app.get('/api/users/auth', auth,(req,res)=>{
     })
 })
 
-// user register
+//================================
+//       user register
+//================================
+
 app.post('/api/users/register',(req,res)=>{
        //res.status(200);
         const user = new User(req.body);
@@ -101,12 +155,15 @@ app.post('/api/users/register',(req,res)=>{
            err
          });
          res.status(200).json({
-           sucess: true,
+           success: true,
          })
        })
 });
 
-// user login
+//================================
+//       user login
+//================================
+
 app.post('/api/users/login',(req,res)=>{
   //find the email
   User.findOne({'email':req.body.email},(err,user)=>{
@@ -125,6 +182,10 @@ app.post('/api/users/login',(req,res)=>{
   })
 })
 
+//================================
+//       user logout
+//================================
+
 app.get('/api/users/logout',auth,(req,res)=>{
 
   User.findOneAndUpdate(
@@ -139,6 +200,11 @@ app.get('/api/users/logout',auth,(req,res)=>{
   )
 })
 
+
+
+//================================
+//       server connection
+//================================
 
 const port = process.env.PORT || 3002;
 
