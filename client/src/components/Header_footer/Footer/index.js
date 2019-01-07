@@ -5,7 +5,7 @@ import faPhone from '@fortawesome/fontawesome-free-solid/faPhone';
 import faClock from '@fortawesome/fontawesome-free-solid/faClock';
 import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope';
 
-const Footer = ({}) => (
+const Footer = () => (
   <footer className="bck_b_dark">
       <div className="container">
           <div className="logo">
@@ -65,7 +65,7 @@ const Footer = ({}) => (
                 <h2>Be the first to know</h2>
                 <div>
                   <div>
-                      Get all the latest information n events, sales and offers. You cannot miss out.
+                      Get all the latest information on events, sales and offers. You cannot miss out.
                   </div>
                 </div>
             </div>
