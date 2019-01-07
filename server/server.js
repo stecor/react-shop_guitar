@@ -57,13 +57,12 @@ app.post('/api/product/article',auth,admin,(req,res)=>{
 
 //================================
 //       Get articles by Arrival
-//     /articles?sortBy=createdAt&order=desc&limit=4
+//     /api/product/articles?sortBy=createdAt&order=desc&limit=4
 //================================
-
 
 //================================
 //       Get articles by Sell
-//     /articles?sortBy=sold&order=desc&limit=4
+//     /api/product/articles?sortBy=sold&order=desc&limit=4
 //================================
 
 app.get('/api/product/articles',(req,res)=>{
