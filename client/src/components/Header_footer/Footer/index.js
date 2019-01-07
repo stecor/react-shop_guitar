@@ -61,7 +61,7 @@ const Footer = () => (
 
               </div>
             </div>
-            <div className="left">
+            <div className="right">
                 <h2>Be the first to know</h2>
                 <div>
                   <div>
