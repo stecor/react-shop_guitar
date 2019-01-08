@@ -1,24 +1,32 @@
 
+// validate function
+
 export const validate = (element, formdata=[]) =>{
 
   let error = [true,''];
 
   if (element.validation.email){
+
     const valid = /\S+@\S+\.\S+/.test(element.value);
-    console.log(valid);
     const message =`${!valid? 'Must be a valid email': null}`;
     error = !valid? [valid,message] : error;
+
   }
 
   if (element.validation.required){
+
     const valid = element.value.trim() !== '';
     //console.log(valid);
     const message =`${!valid? 'This field is required': null}`;
     error = !valid? [valid,message] : error;
+
   }
 
   return error
 }
+
+
+// Update formdata function
 
 export const update = (element,formdata, formName) =>{
 
@@ -42,4 +50,29 @@ export const update = (element,formdata, formName) =>{
     newFormdata[element.id]= newElement;
 
     return newFormdata;
+}
+
+
+// generateData to submit function
+
+export const generateData = (formdata, formName) =>{
+
+  let dataToSubmit = {};
+
+  for(let key in formdata){
+    dataToSubmit[key] = formdata[key].value;
+  }
+
+  return dataToSubmit;
+}
+
+
+export const IsformValid = (formdata, formName) =>{
+
+  let formIsValid = true;
+
+      for(let key in formdata){
+        formIsValid = formdata[key].valid && formIsValid;
+      }
+      return formIsValid;
 }

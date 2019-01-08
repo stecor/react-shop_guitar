@@ -1,4 +1,5 @@
-$primary-color: #fff;
+$white: #fff;
+$gray: #dddddd;
 
 body {
     margin:0;
@@ -53,7 +54,7 @@ a {
 .load_more_container span {
     cursor: pointer;
     background: #2196F3;
-    color: #ffffff;
+    color: $white;
     font-size: 27px;
     padding: 10px 60px;
     display: table;
@@ -71,7 +72,7 @@ a {
     font-size: 70px;
     text-align: center;
     padding-top: 70px;
-    color: #dddddd;
+    color: $gray;
 }
 
 .clear:after {
@@ -87,13 +88,13 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid $gray;
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: $gray;
 }
 
 /*============================
@@ -143,7 +144,7 @@ textarea {
 .label_inputs {
     display: inline-block;
     background: #999592;
-    color: #fff;
+    color: $white;
     padding: 5px 5px;
 }
 
@@ -176,7 +177,7 @@ select {
 
 .form_success {
     background: #4CAF50;
-    color: #ffffffff;
+    color: $white;
     padding: 10px;
     display: block;
 }
@@ -255,7 +256,7 @@ header {
 
 header .logo {
     font-family: 'Monoton', cursive;
-    color: #ffffff;
+    color: $white;
     font-size: 40px;
     padding: 11px 0px;
 }
@@ -282,14 +283,14 @@ header .container .right .bottom {
     text-transform: uppercase;
     font-weight: 700;
     text-align: right;
-    color:#ffffff;
+    color:$white;
     font-size: 15px;
     padding: 10px 20px;
 }
 
 header .container .right .top {
     color:#c9c9c9;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid $white;
 }
 
 header .cart_link {
@@ -323,7 +324,7 @@ header .log_out_link {
 footer .logo {
     text-align: center;
     font-family: 'Monoton', cursive;
-    color: #ffffff;
+    color: $white;
     font-size: 40px;
     padding: 11px 0px;
     border-bottom: 1px solid #4d4d4d;
@@ -379,7 +380,7 @@ footer .business_nfo .nfo {
 
 .featured_container .featured_action .tag {
     background: #82828287;
-    color: #ffffff;
+    color: $white;
     padding: 0px 20px;
     text-transform: uppercase;
     display: table;
@@ -411,7 +412,7 @@ footer .business_nfo .nfo {
 
 .home_promotion .tag {
     background: #82828287;
-    color: #ffffff;
+    color: $white;
     padding: 0px 20px;
     text-transform: uppercase;
     display: table;
@@ -773,7 +774,7 @@ footer .business_nfo .nfo {
 
 .user_container .user_left_nav .links a {
     display: block;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid $gray;
     font-size: 20px;
     font-weight: 300;
     padding: 10px 0px;
@@ -836,7 +837,7 @@ footer .business_nfo .nfo {
     background: #F44336;
     display: inline-block;
     padding: 5px 10px;
-    color: #ffffff;
+    color: $white;
     margin-top: 50px;
 }
 
