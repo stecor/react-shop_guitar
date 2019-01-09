@@ -31,7 +31,7 @@ a {
 
 .dialog_alert {
   padding: 51px;
-  font-size: 30px; }
+  font-size: 15px; }
 
 .load_more_container {
   clear: both;
@@ -42,7 +42,7 @@ a {
 .load_more_container span {
   cursor: pointer;
   background: #2196F3;
-  color: #ffffff;
+  color: #fff;
   font-size: 27px;
   padding: 10px 60px;
   display: table;
@@ -148,7 +148,7 @@ select {
 
 .form_success {
   background: #4CAF50;
-  color: #ffffffff;
+  color: #fff;
   padding: 10px;
   display: block; }
 
@@ -217,7 +217,7 @@ header {
 
 header .logo {
   font-family: 'Monoton', cursive;
-  color: #ffffff;
+  color: #fff;
   font-size: 40px;
   padding: 11px 0px; }
 
@@ -240,13 +240,13 @@ header .container .right .bottom {
   text-transform: uppercase;
   font-weight: 700;
   text-align: right;
-  color: #ffffff;
+  color: #fff;
   font-size: 15px;
   padding: 10px 20px; }
 
 header .container .right .top {
   color: #c9c9c9;
-  border-bottom: 1px solid #ffffff; }
+  border-bottom: 1px solid #fff; }
 
 header .cart_link {
   display: inline-block;
@@ -273,7 +273,7 @@ header .log_out_link {
 footer .logo {
   text-align: center;
   font-family: 'Monoton', cursive;
-  color: #ffffff;
+  color: #fff;
   font-size: 40px;
   padding: 11px 0px;
   border-bottom: 1px solid #4d4d4d; }
@@ -319,7 +319,7 @@ footer .business_nfo .nfo {
 
 .featured_container .featured_action .tag {
   background: #82828287;
-  color: #ffffff;
+  color: #fff;
   padding: 0px 20px;
   text-transform: uppercase;
   display: table; }
@@ -345,7 +345,7 @@ footer .business_nfo .nfo {
 
 .home_promotion .tag {
   background: #82828287;
-  color: #ffffff;
+  color: #fff;
   padding: 0px 20px;
   text-transform: uppercase;
   display: table; }
@@ -689,7 +689,7 @@ footer .business_nfo .nfo {
   background: #F44336;
   display: inline-block;
   padding: 5px 10px;
-  color: #ffffff;
+  color: #fff;
   margin-top: 50px; }
 
 /*=============================

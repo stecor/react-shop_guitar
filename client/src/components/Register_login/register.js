@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormField from '../utils/Form/formfield'
 import { update,generateData, IsformValid } from '../utils/Form/formActions';
-import { loginUser } from '../../actions/user_actions';
+import { registerUser } from '../../actions/user_actions';
+import  Dialog  from '@material-ui/core/Dialog';
 
 
 class Register extends Component {
 
     state={
       formError: false,
-      formSuccess: '',
+      formSuccess: false,
       formdata:{
         name:{
           element:'input',
@@ -99,7 +100,8 @@ class Register extends Component {
         })
     }
 
-    submitForm = (event) => {
+
+  submitForm = (event) => {
 
         event.preventDefault();
 
@@ -109,7 +111,28 @@ class Register extends Component {
 
         if(formIsValid){
 
-          console.log(dataToSubmit);
+        this.props.dispatch(registerUser(dataToSubmit))
+                .then(response =>{
+                  if(response.payload.success){
+
+                     this.setState({
+                       formError:false,
+                       formSuccess:true
+                     });
+
+                     setTimeout(()=>{
+                       this.props.history.push('/register_login');
+                     },3000)
+                  }else{
+                    this.setState({
+                      formError: true
+                    })
+                  }
+                }).catch((e)=>{
+                  this.setState({
+                    formError: true
+                  })
+                })
 
         }else{
             this.setState({
@@ -184,8 +207,15 @@ class Register extends Component {
               </form>
             </div>
           </div>
-
         </div>
+        <Dialog open={this.state.formSuccess}>
+            <div className="dialog_alert">
+              <div>Register Success!</div>
+              <div>You will be redirected to the LOGIN page...</div>
+            </div>
+
+
+        </Dialog>
       </div>
     );
   }
