@@ -18,13 +18,13 @@ const links = [
 
 const UserLayout = (props) => {
 
-  const generateLinks =(links) =>(
-      links.map((item,i)=>(
-        <Link to={item.linkTo} key={i}>
-          {item.name}
-        </Link>
-      ))
-    )
+    const generateLinks =(links) =>(
+        links.map((item,i)=>(
+          <Link to={item.linkTo} key={i}>
+            {item.name}
+          </Link>
+        ))
+      )
 
   return (<div className="container">
     <div className="user_container">
