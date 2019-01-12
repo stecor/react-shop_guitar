@@ -1,3 +1,5 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 $white: #fff;
 $gray: #dddddd;
 
@@ -374,8 +376,8 @@ footer .business_nfo .nfo {
 
 .featured_container .featured_action {
     position: absolute;
-    top: 45%;
-    left: 8%;
+    top: 20%;
+    left: 4%;
 }
 
 .featured_container .featured_action .tag {

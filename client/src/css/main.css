@@ -1,3 +1,5 @@
+@import url(~slick-carousel/slick/slick.css);
+@import url(~slick-carousel/slick/slick-theme.css);
 body {
   margin: 0;
   padding: 0;
@@ -314,8 +316,8 @@ footer .business_nfo .nfo {
 
 .featured_container .featured_action {
   position: absolute;
-  top: 45%;
-  left: 8%; }
+  top: 20%;
+  left: 4%; }
 
 .featured_container .featured_action .tag {
   background: #82828287;
