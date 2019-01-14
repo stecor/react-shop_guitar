@@ -1,11 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
 import MyButton from '../utils/button';
 
 const HomeSlider = (props) => {
-
+  
   const settings = {
     dots: false,
     infinite: true,
