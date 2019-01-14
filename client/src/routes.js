@@ -18,9 +18,9 @@ const Routes = () =>{
   return(
     <Layout>
       <Switch>
-        //private
+        {/* private */}
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
-        //public
+        {/* public */}
         <Route path="/register" exact component={Auth(Register, false)} />
         <Route path="/register_login" exact component={Auth(RegisterLogin, false)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
