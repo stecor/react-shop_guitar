@@ -62,7 +62,7 @@ class CollapseRadio extends Component {
   handleChange = (event) =>{
 
       this.props.handleFilters(event.target.value);
-      
+
       this.setState({
         value: event.target.value
       })
@@ -77,14 +77,13 @@ class CollapseRadio extends Component {
           <ListItem
             onClick={this.handleClick}
             style={{
-              padding: '10px 32px 10px 0'
+              padding: '10px 10px 0 0'
             }}
           >
             <ListItemText
               primary={this.props.title}
-              className="Collapse_title"
             />
-            {this.handleAngle()}
+          <span className="collapse_title">{this.handleAngle()}</span>
 
           </ListItem>
           <Collapse

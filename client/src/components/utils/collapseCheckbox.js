@@ -14,7 +14,7 @@ import Collapse from '@material-ui/core/Collapse';
 class CollapseCheckbox extends Component {
 
   state={
-    open: false,
+    open: true,
     checked: []
   }
 
@@ -50,12 +50,14 @@ class CollapseCheckbox extends Component {
   renderList = () =>(
     this.props.list?
       this.props.list.map((value)=>(
-        <ListItem key={value._id} style={{padding:'10px 0'}} >
+        <ListItem key={value._id} style={{padding:'0px 0px 0px 100px'}} >
           <ListItemText primary={value.name}/>
           <ListItemSecondaryAction>
-              <Checkbox color="primary"
+              <Checkbox
                         onChange={this.handleToggle(value._id)}
-                        checked={this.state.checked.indexOf(value._id)!== -1}/>
+                        checked={this.state.checked.indexOf(value._id)!== -1}
+                        style={{padding:'0px 60px 0px 0px'}}
+                        />
           </ListItemSecondaryAction>
         </ListItem>
       ))
@@ -86,19 +88,18 @@ class CollapseCheckbox extends Component {
       <div className="collapse_items_wrapper">
 
         <List style={{
-          borderBottom: '1px solid #dbdbdb'
+          borderBottom: '1px solid #FB033C'
         }}>
           <ListItem
             onClick={this.handleClick}
             style={{
-              padding: '10px 32px 10px 0'
+              padding: '10px 10px 10px 0'
             }}
           >
             <ListItemText
               primary={this.props.title}
-              className="Collapse_title"
             />
-            {this.handleAngle()}
+          <span className="collapse_arrow">{this.handleAngle()}</span>
 
           </ListItem>
           <Collapse
@@ -110,7 +111,7 @@ class CollapseCheckbox extends Component {
                 component="div"
                 disablePadding
               >
-              {this.renderList()}
+              <span className="collapse_arrow">{this.renderList()}</span>
               </List>
 
           </Collapse>
