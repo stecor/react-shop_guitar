@@ -5,6 +5,7 @@ import CollapseCheckbox from '../utils/collapseCheckbox';
 import { frets } from '../utils/Form/fixed_categories';
 import { price } from '../utils/Form/fixed_categories';
 import CollapseRadio from '../utils/collapseRadio';
+import LoadMoreCards from './loadMoreCards'
 
 import { connect }  from 'react-redux';
 
@@ -116,7 +117,20 @@ class Shop extends Component {
                     />
             </div>
             <div className="right">
-             right
+              <div className="shop_options">
+                <div className="shop_grids clear">
+                  grids
+                </div>
+                  <LoadMoreCards
+                    grid={this.state.grid}
+                    limit={this.state.limit}
+                    size={products.toShopSize}
+                    products={products.toShop}
+                    loadMore = {()=>{
+                      console.log('loadMore');
+                    }}
+                    />
+              </div>
             </div>
           </div>
         </div>
