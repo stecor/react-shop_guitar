@@ -24,6 +24,12 @@ const FormField = ({formdata, change, id}) =>{
       case ('input'):
                       formTemplate =(
                                       <div className="formBlock">
+                                        {
+                                          formdata.showlabel?
+                                            <div className="label_inputs">{formdata.config.label}</div>
+
+                                          :null
+                                        }
                                           <input {...formdata.config}
                                                   value={formdata.value}
                                                   onBlur={(event)=> change({event,id,blur:true})}
@@ -33,7 +39,7 @@ const FormField = ({formdata, change, id}) =>{
                                       </div>
                                     )
                       break;
-                      
+
       default:
                       formTemplate=null;
 
