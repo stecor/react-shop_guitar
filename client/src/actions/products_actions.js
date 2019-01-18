@@ -3,7 +3,9 @@ import { GET_PRODUCTS_BY_SELL,
          GET_PRODUCTS_BY_ARRIVAL,
          GET_BRANDS,
          GET_WOODS,
-         GET_PRODUCTS_TO_SHOP
+         GET_PRODUCTS_TO_SHOP,
+         ADD_PRODUCT,
+         CLEAR_PRODUCT,
          } from './types';
 import { PRODUCT_SERVER } from '../components/utils/misc';
 
@@ -55,6 +57,39 @@ export function getProductsToShop(skip, limit, filters=[],previousState=[]){
         payload: request
       }
 }
+
+export function addProduct(dataToSubmit){
+  const request = axios.post(`${PRODUCT_SERVER}/article`, dataToSubmit)
+                      .then((response) => response.data);
+
+        return {
+          type: ADD_PRODUCT,
+          payload: request
+        }
+}
+
+
+export const resetFields =  (formdata, formName) =>{
+  const newFormdata = {...formdata};
+
+  for( let key in newFormdata){
+    newFormdata[key].value = '';
+    newFormdata[key].valid = false;
+    newFormdata[key].touched = false;
+    newFormdata[key].validationMessage = '';
+  }
+
+  return newFormdata
+}
+
+
+export const clearProduct = () =>{
+    return {
+      type: CLEAR_PRODUCT,
+      payload: ''
+    }
+}
+
 
 //////////////////
 ////    CATEGORIES
