@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import UserLayout from '../../../hoc/userLayout'
 import FormField from '../../utils/Form/formfield'
 import FileUpload from '../../utils/Form/fileupload';
-import { update,generateData, IsformValid, populateOptionFields } from '../../utils/Form/formActions';
-import { getBrands, getWoods, addProduct, resetFields, clearProduct } from '../../../actions/products_actions'
+import { update,generateData, IsformValid, populateOptionFields, resetFields } from '../../utils/Form/formActions';
+import { getBrands, getWoods, addProduct, clearProduct } from '../../../actions/products_actions';
 import { connect } from 'react-redux';
 
 
@@ -229,6 +229,7 @@ class AddProduct extends Component {
       formdata: newFormdata,
       formSuccess: true
     });
+
     setTimeout(()=>{
       this.setState({
         formSuccess: false
@@ -247,9 +248,9 @@ class AddProduct extends Component {
 
 
         if(formIsValid){
-
+              console.log(dataToSubmit);
           this.props.dispatch(addProduct(dataToSubmit)).then(()=>{
-            console.log(this.props.products.addProduct.success);
+            console.log("products:" + this.props.products.addProduct.success);
             if(this.props.products.addProduct.success){
                this.resetFieldHandler();
             }else{
