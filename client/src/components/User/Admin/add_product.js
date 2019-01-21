@@ -221,6 +221,7 @@ class AddProduct extends Component {
         })
     }
 
+
   resetFieldHandler = () => {
 
     const newFormdata = resetFields(this.state.formdata,'products');
@@ -281,6 +282,7 @@ class AddProduct extends Component {
     });
 
   }
+
 
   imagesHandler = (images) =>{
       const newFormData ={

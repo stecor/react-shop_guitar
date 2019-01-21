@@ -862,6 +862,7 @@ footer .business_nfo .nfo {
 .admin_two_column .right {
     flex-grow: 1;
 }
+
 .brands_container {
     height: 200px;
     overflow-y: scroll;
@@ -878,6 +879,24 @@ footer .business_nfo .nfo {
     background: #999592;
     color: #fff;
 }
+
+.woods_container {
+    height: 200px;
+    overflow-y: scroll;
+    margin-right: 20px;
+}
+
+.woods_container .category_item {
+    width: 200px;
+    font-size: 20px;
+    font-weight: 300;
+    border: 1px solid #f1f1f1;
+    padding: 10px;
+    position: relative;
+    background: #999592;
+    color: #fff;
+}
+
 
 .dropzone {
     border: 1px solid #e5e5e5;

@@ -4,9 +4,12 @@ import { GET_PRODUCTS_BY_SELL,
          GET_BRANDS,
          ADD_BRAND,
          GET_WOODS,
+         ADD_WOOD,
          GET_PRODUCTS_TO_SHOP,
          ADD_PRODUCT,
          CLEAR_PRODUCT,
+         CLEAR_WOOD,
+         CLEAR_BRAND,
          } from './types';
 import { PRODUCT_SERVER } from '../components/utils/misc';
 
@@ -71,13 +74,26 @@ export function addProduct(dataToSubmit){
 
 
 
-
-
 export const clearProduct = () =>{
     return {
       type: CLEAR_PRODUCT,
       payload: ''
     }
+}
+
+
+export const clearWood = () =>{
+    return {
+      type: CLEAR_WOOD,
+      payload: ''
+    }
+}
+
+export const clearBrand = () =>{
+  return {
+    type: CLEAR_BRAND,
+    payload: ''
+  }
 }
 
 
@@ -125,4 +141,25 @@ export function getWoods(){
         type: GET_WOODS,
         payload: request
       }
+}
+
+export function addWood(dataToSubmit, existingWoods){
+
+  const request = axios.post(`${PRODUCT_SERVER}/wood`,dataToSubmit)
+                .then(response=>{
+                  let woods=[
+                    ...existingWoods,
+                    response.data.wood
+                  ];
+                return {
+                  success: response.data.success,
+                  woods
+                }
+
+                });
+        return{
+          type: ADD_WOOD,
+          payload: request
+        }
+
 }
