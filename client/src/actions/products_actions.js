@@ -7,11 +7,18 @@ import { GET_PRODUCTS_BY_SELL,
          ADD_WOOD,
          GET_PRODUCTS_TO_SHOP,
          ADD_PRODUCT,
+         GET_PRODUCT_DETAIL,
+         CLEAR_PRODUCT_DETAIL,
          CLEAR_PRODUCT,
          CLEAR_WOOD,
          CLEAR_BRAND,
          } from './types';
 import { PRODUCT_SERVER } from '../components/utils/misc';
+
+
+////////////////////////////////////
+////         PRODUCTS
+////////////////////////////////////
 
 
 export function getProductsBySell(){
@@ -73,6 +80,17 @@ export function addProduct(dataToSubmit){
 }
 
 
+////////////////////////////////////
+////         CLEAR
+////////////////////////////////////
+
+export function clearProductDetail(){
+  return {
+    type: CLEAR_PRODUCT_DETAIL,
+    payload: ''
+  }
+}
+
 
 export const clearProduct = () =>{
     return {
@@ -97,9 +115,9 @@ export const clearBrand = () =>{
 }
 
 
-//////////////////
-////    CATEGORIES
-//////////////////
+////////////////////////////////////
+////    CATEGORIES - BRAND/WOOD
+////////////////////////////////////
 
 export function getBrands(){
 
@@ -161,5 +179,21 @@ export function addWood(dataToSubmit, existingWoods){
           type: ADD_WOOD,
           payload: request
         }
+}
 
+
+////////////////////////////////////
+////    PRODUCT DETAIL
+////////////////////////////////////
+
+export function getProductDetail(id){
+
+    const request = axios.get(`${PRODUCT_SERVER}/articles_by_id?id=${id}&type=single`)
+              .then(response=>{
+                return response.data[0]
+              });
+        return{
+          type: GET_PRODUCT_DETAIL,
+          payload: request
+        }
 }

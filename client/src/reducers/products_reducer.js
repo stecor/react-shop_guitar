@@ -6,6 +6,8 @@ import { GET_PRODUCTS_BY_SELL,
          ADD_WOOD,
          GET_PRODUCTS_TO_SHOP,
          ADD_PRODUCT,
+         GET_PRODUCT_DETAIL,
+         CLEAR_PRODUCT_DETAIL,
          CLEAR_PRODUCT,
          CLEAR_WOOD,
          CLEAR_BRAND,
@@ -41,6 +43,12 @@ export default function(state={},action){
 
     case ADD_PRODUCT:
           return {...state, addProduct: action.payload}
+
+    case GET_PRODUCT_DETAIL:
+          return {...state, prodDetail: action.payload}
+
+    case CLEAR_PRODUCT_DETAIL:
+          return {...state, prodDetail: action.payload}
 
     case CLEAR_PRODUCT:
           return {...state, addProduct: action.payload}
