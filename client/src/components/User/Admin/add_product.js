@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import UserLayout from '../../../hoc/userLayout'
-import FormField from '../../utils/Form/formfield'
+import UserLayout from '../../../hoc/userLayout';
+import FormField from '../../utils/Form/formfield';
 import FileUpload from '../../utils/Form/fileupload';
 import { update,generateData, IsformValid, populateOptionFields, resetFields } from '../../utils/Form/formActions';
 import { getBrands, getWoods, addProduct, clearProduct } from '../../../actions/products_actions';

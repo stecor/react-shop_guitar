@@ -6,6 +6,7 @@ import Auth from './hoc/auth';
 
 //private pages
 import UserDashboard from './components/User';
+import ManageCategories from './components/User/Admin/manage_categories'
 
 //public pages
 import Home from './components/Home';
@@ -20,6 +21,7 @@ const Routes = () =>{
     <Layout>
       <Switch>
         {/* private */}
+        <Route path="/admin/manage_categories" exact component={Auth(ManageCategories, true)} />
         <Route path="/admin/add_product" exact component={Auth(AddProduct, true)} />
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
         {/* public */}
