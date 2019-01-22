@@ -305,7 +305,7 @@ app.post('/api/users/login',(req,res)=>{
 app.get('/api/users/logout',auth,(req,res)=>{
 
   User.findOneAndUpdate(
-    {_id:req.user._id},
+    { _id: req.user._id },
     {token: ''},
     (err,doc)=>{
       if(err) return res.json({success:false, err});
@@ -314,6 +314,51 @@ app.get('/api/users/logout',auth,(req,res)=>{
       })
     }
   )
+})
+
+
+//================================
+//       Add To Cart
+//================================
+
+app.post('/api/users/addToCart',auth,(req,res) =>{
+
+  User.findOne(
+    { _id: req.user._id },
+    (err,doc)=>{
+
+     let duplicate = false;
+
+     doc.cart.forEach((item)=>{
+       
+       if(item.id == req.query.productId){
+         duplicate = true;
+       }
+
+     })
+
+     if(duplicate){
+          ///
+     }else {
+
+       User.findOneAndUpdate(
+         { _id: req.user._id },
+         { $push:{
+                  cart:{
+                         id: mongoose.Types.ObjectId(req.query.productId),
+                         quantity: 1,
+                         date: Date.now(),
+                        }
+                 }
+         },
+         { new: true },
+         (err,doc) =>{
+           if(err) return res.json({success: false, err });
+           res.status(200).json( doc.cart )
+         }
+       )
+     }
+  })
 })
 
 
