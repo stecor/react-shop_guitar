@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import UserLayout from '../../hoc/userLayout';
-import { getCartItems } from '../../actions/user_actions';
+import { getCartItems, removeCartItem } from '../../actions/user_actions';
 import UserProductBlock from '../utils/User/product_block';
 
 import { connect } from 'react-redux';
