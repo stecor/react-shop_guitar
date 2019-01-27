@@ -365,7 +365,7 @@ app.post('/api/users/addToCart',auth,(req,res) =>{
 })
 
 
-app.get('/api/user/removeFromCart',auth,(req,res)=>{
+app.get('/api/users/removeFromCart',auth,(req,res)=>{
     User.findOneAndUpdate(
       {_id:req.user._id},
       {"$pull":{"cart":{"id": mongoose.Types.ObjectId(req.query._id)}}

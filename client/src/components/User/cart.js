@@ -54,8 +54,17 @@ calculateTotal = (cartDetail) =>{
 }
 
 
-removeFromCart = () =>{
-
+removeFromCart = (id) =>{
+    this.props.dispatch(removeCartItem(id))
+            .then(()=>{
+              if (this.props.user.cartDetail.length <= 0) {
+                this.setState({
+                  showTotal:false
+                })
+              } else {
+                this.calculateTotal(this.props.user.cartDetail)
+              }
+            })
 }
 
 showNoItemMessage =() =>(
