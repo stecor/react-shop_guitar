@@ -98,6 +98,7 @@ class ManageBrands extends Component {
     }
 
 
+
   componentDidMount() {
     this.props.dispatch(getBrands());
   }
@@ -137,9 +138,10 @@ class ManageBrands extends Component {
                         </div>
                         :null
                     }
-                  <button  onClick={(event)=>this.submitForm(event)}>
-                    Add Brand
-                  </button>
+
+                      <button  onClick={(event)=>this.submitForm(event)}>
+                        Add Brand
+                      </button>
 
                 </form>
             </div>
