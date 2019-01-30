@@ -3,8 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-
-
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
 
@@ -434,12 +432,13 @@ app.get('/api/users/removeimage', auth, admin,(req,res) =>{
 //       Router Default Production
 //================================
 
-if(process.env.NODE_ENV === 'production'){
-  const path = require('path');
-  app.get('/*',(req,res)=>{
-    res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
-  })
+if( process.env.NODE_ENV === 'production' ){
+    const path = require('path');
+    app.get('/*',(req,res)=>{
+        res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
+    })
 }
+
 
 
 //================================
