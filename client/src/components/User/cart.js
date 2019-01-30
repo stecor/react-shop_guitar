@@ -6,6 +6,7 @@ import UserProductBlock from '../utils/User/product_block';
 
 import { connect } from 'react-redux';
 
+
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faFrown from '@fortawesome/fontawesome-free-solid/faFrown';
 import faSmile from '@fortawesome/fontawesome-free-solid/faSmile';
