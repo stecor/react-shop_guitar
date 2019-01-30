@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-app.use(express.static('client/build'))
+
 
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
@@ -18,6 +18,8 @@ mongoose.connect(process.env.DATABASE);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+app.use(express.static('client/build'));
 
 cloudinary.config({
   cloud_name:process.env.CLOUD_NAME,
