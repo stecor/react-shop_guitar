@@ -430,7 +430,7 @@ app.get('/api/users/removeimage', auth, admin,(req,res) =>{
 //       server connection
 //================================
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3002;
 
 app.listen(port,() =>{
   console.log(`Server running at ${port}`);
