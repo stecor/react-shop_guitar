@@ -42,8 +42,6 @@ const { Product } = require('./models/product');
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
-
-
 //================================
 //       PRODUCTS
 //================================
