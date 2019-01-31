@@ -91,8 +91,6 @@ app.post('/api/product/shop',(req,res)=>{
               articles
             })
           })
-
-
 })
 
 //================================
