@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Swal from 'sweetalert';
+
 import MyButton from './button';
 
 import { connect } from 'react-redux';
@@ -58,7 +60,12 @@ class Card extends Component {
                   props.user.userData.isAuth ?
                       this.props.dispatch(addToCart(props._id))
 
-                  :    console.log("loggin please");
+                  :    Swal({
+                    title: "Please login!",
+                    text: "You cannot add products to the cart!",
+                    icon: "error",
+                    button: "Back",
+                  })
 
 
                 }}
