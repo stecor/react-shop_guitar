@@ -42,7 +42,6 @@ class ProductDetail extends Component {
                     <div style={{width:'500px'}}>
                         <ProdImg
                           detail={this.props.products.prodDetail}
-
                           />
                     </div>
                   </div>

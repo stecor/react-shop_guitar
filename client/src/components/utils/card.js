@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import Swal from 'sweetalert';
 
 import MyButton from './button';
 
-import { connect } from 'react-redux';
 import { addToCart } from '../../actions/user_actions';
 
 
@@ -23,15 +25,20 @@ class Card extends Component {
 
     return (
       <div className={`card_item_wrapper ${props.grid}`}>
-          <div className="image"
-                style={{
-                  background:`url(${this.renderCardImage(props.images)}) no-repeat`
-                }}>
-          </div>
+          <Link to={`/product_detail/${props._id}`}>
+            <div className="image"
+                  style={{
+                    background:`url(${this.renderCardImage(props.images)}) no-repeat`
+                  }}>
+            </div>
+          </Link>
+
           <div className="action_container">
             <div className="tags">
               <div className="brand">{props.brand.name}</div>
-              <div className="name">{props.name}</div>
+              <Link to={`/product_detail/${props._id}`}>
+                <div className="name">{props.name}</div>
+              </Link>
               <div className="price">${props.price}</div>
             </div>
           {
@@ -59,15 +66,12 @@ class Card extends Component {
                 runAction={()=>{
                   props.user.userData.isAuth ?
                       this.props.dispatch(addToCart(props._id))
-
                   :    Swal({
                     title: "Please login!",
                     text: "You cannot add products to the cart!",
                     icon: "error",
                     button: "Back",
                   })
-
-
                 }}
               />
             </div>
@@ -81,7 +85,6 @@ class Card extends Component {
 }
 
 const mapStateToProps = (state) =>{
-
    return{
      user: state.user
    }

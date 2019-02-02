@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import MyButton from '../utils/button';
+import Swal from 'sweetalert';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faTruck from '@fortawesome/fontawesome-free-solid/faTruck';
@@ -62,7 +65,14 @@ const ProdInfo = (props) => {
               <MyButton
                   type="add_to_cart_link"
                   runAction = {()=>{
-                    props.addToCart(detail._id)
+                     props.user.userData.isAuth ?
+                          props.addToCart(detail._id)
+                     :Swal({
+                        title: "Please login!",
+                        text: "You cannot add products to the cart!",
+                        icon: "error",
+                        button: "Back",
+                      })
                   }}
                 />
             </div>
@@ -96,4 +106,11 @@ const ProdInfo = (props) => {
   </div>
 )};
 
-export default ProdInfo;
+const mapStateToProps = (state) =>{
+
+   return{
+     user: state.user
+   }
+}
+
+export default connect(mapStateToProps)(ProdInfo);
